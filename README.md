@@ -27,11 +27,13 @@ This project is a simple CRUD API built with Node.js, Express.js, TypeScript, an
 
 ### Accounts
 
-- **GET /accounts**: Retrieves a list of accounts. Protected by authentication middleware.
-- **POST /accounts**: Creates a new account. Protected by authentication middleware.
-- **GET /accounts/:id**: Retrieves a specific account by ID. Protected by authentication middleware.
-- **PUT /accounts/:id**: Updates an account by ID. Protected by authentication middleware.
-- **DELETE /accounts/:id**: Deletes an account by ID. Protected by authentication middleware.
+- **POST /api/auth/register**: Creates a new account.
+- **POST /api/auth/login**: Used to login into an account
+- **GET /api/accounts**: Retrieves a list of accounts. Protected by authentication middleware.
+- **GET /api/accounts?limit=1**: Retrieves a list of accounts with limit given in query param.
+- **GET /api/accounts/:id**: Retrieves a specific account by ID.
+- **PUT /api/accounts/:id**: Updates an account by ID.
+- **DELETE /api/accounts/:id**: Deletes an account by ID.
 
 ## Initialization and Start
 
