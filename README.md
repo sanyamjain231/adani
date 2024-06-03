@@ -2,7 +2,7 @@
 
 ## Summary
 
-This project is a simple CRUD API built with Node.js, Express.js, TypeScript, and SQLite. It provides basic functionality to create, read, update, and delete user accounts. It also includes user authentication and authorization using JWT.
+This project is a simple CRUD API built with Node.js, Express.js, TypeScript, and SQLite. It provides basic functionality to create, read, update, and delete user accounts. It also includes user authentication and authorization using JWT and OAuth.
 
 ## Technologies Used
 
@@ -10,7 +10,7 @@ This project is a simple CRUD API built with Node.js, Express.js, TypeScript, an
 - Express.js
 - TypeScript
 - SQLite
-- JWT (JSON Web Token) for authentication and authorization
+- OAuth and JWT (JSON Web Token) for authentication and authorization
 
 ## Authentication and Authorization
 
@@ -51,12 +51,26 @@ This project is a simple CRUD API built with Node.js, Express.js, TypeScript, an
 3. **Set up environment variables:**
    Create a .env file in the root directory and add the following:
    JWT_SECRET=your_jwt_secret
+   GOOGLE_CLIENT_ID=your_client_id
+   GOOGLE_CLIENT_SECRET=your_secret_key
+   CALLBACK_URL=http://localhost:3000/api/auth/google/callback
 
 4. **Initialize the database:**
    Make sure to have SQLite installed. You can initialize the database using the provided script or create it manually.
 
-5. **Compile TypeScript to JavaScript:**
-   npx tsc
+5. **Start the server:**
+   npm start
 
-6. **Start the server:**
-   node dist/index.js
+## 2nd- To Check OAuth implementation
+
+1. **Setup a new project in google cloud console and obtain client_id and secret_key for OAuth**
+2. **In google console, inside callback URL paste:**
+   http://localhost:3000/api/auth/google/callback
+
+3. **Start the server:**
+   npm start
+4. **Open a web browser and paste the below URL:**
+   http://localhost:3000/api/auth/google/callback
+
+- The above url will redirect us to google login and afterwards redirect to welcome page with a JWT token attached.
+- Copy the JWT token and make use of it in postman to check the remaining end points.
